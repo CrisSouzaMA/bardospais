@@ -1,0 +1,21 @@
+.headerStyle {
+    display: flex;
+    align-items: center; 
+    text-align: center;
+    color: #fff;
+    background-color: #4096ff;
+    height: 80px;
+    gap: 5px;
+}
+
+.iconCss {
+    margin-left: 15px;
+}
+
+.iconCss & :hover {
+    background-color: red;
+}
+
+p {
+    font-family: sans-serif;
+}
