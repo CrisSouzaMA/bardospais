@@ -1,42 +1,54 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
-import styles from './style.module.css';
-import { Tabs } from 'antd';
-import type { TabsProps } from 'antd';
-import CardContent from '../Card';
+import React, { useState, ReactNode } from 'react';
 
-const items = [
-    {
-      key: '1',
-      label: 'Lanches',
-      category: 'lanches',
-      content: <CardContent category="1" />,
-    },
-    {
-      key: '2',
-      label: 'Bebidas',
-      category: 'bebidas',
-      content: <CardContent category="2" />,
-    },
-    {
-      key: '3',
-      label: 'Itens de mercearia',
-      category: 'mercearia',
-      content: <CardContent category="3" />,
-    },
-  ];
-  
-  const TabsComponent = () => {
-    const [activeKey, setActiveKey] = useState('1');
+interface TabProps {
+  label: string;
+  children: ReactNode;
+}
 
-    const onChangeTab = (key: string) => {
-        setActiveKey(key);
-        console.log({ activeKey })
-    };
+const Tabs: React.FC<{ children: ReactNode[] }> = ({ children }) => {
+  const [activeTab, setActiveTab] = useState<string>(() => {
+    const firstChild = children[0] as React.ReactElement<TabProps>;
+    return firstChild?.props.label || '';
+  });
 
-    return (
-      <Tabs activeKey={activeKey} onChange={onChangeTab} items={items}/>
-    );
-  }
-  
-  export default TabsComponent;
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, newActiveTab: string) => {
+    e.preventDefault();
+    setActiveTab(newActiveTab);
+  };
+
+  return (
+    <div className="w-full mx-auto">
+      <div className="flex border-b border-gray-300 py-4">
+        {(children as React.ReactElement<TabProps>[]).map((child) => (
+          <button
+            key={child.props.label}
+            className={`${
+              activeTab === child.props.label ? 'border-b-2 border-red-500' : ''
+            } flex-1 text-gray-700 font-medium py-2`}
+            onClick={(e) => handleClick(e, child.props.label)}
+          >
+            {child.props.label}
+          </button>
+        ))}
+      </div>
+      <div className="py-4">
+        {(children as React.ReactElement<TabProps>[]).map((child) => {
+          if (child.props.label === activeTab) {
+            return <div key={child.props.label}>{child.props.children}</div>;
+          }
+          return null;
+        })}
+      </div>
+    </div>
+  );
+};
+
+const Tab: React.FC<TabProps> = ({ label, children }) => {
+  return (
+    <div data-label={label} className="hidden w-full">
+      {children}
+    </div>
+  );
+};
+
+export { Tabs, Tab };
