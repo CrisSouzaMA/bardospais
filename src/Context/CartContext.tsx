@@ -4,7 +4,7 @@ import { DataCardProps } from '../services/interface/card';
 interface CartContextData {
   cart: DataCardProps[];
   addToCart: (product: DataCardProps) => void;
-  removeFromCart: (productId: number) => void;
+  removeFromCart: (productId: string) => void;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
@@ -23,7 +23,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   };
 
-  const removeFromCart = (productId: number) => {
+  const removeFromCart = (productId: string) => {
     const productIndex = cart.findIndex((item) => item.id === productId);
 
     if (productIndex !== -1) {

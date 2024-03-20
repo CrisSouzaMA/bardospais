@@ -5,7 +5,6 @@ import { ContentTabs } from '../../Components/Tabs/ContentTabs';
 const Home = () => {
   return (
     <div>
-      <Header />
       <ContentTabs />
       <Footer />
     </div>

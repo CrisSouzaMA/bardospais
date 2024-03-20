@@ -20,15 +20,15 @@ export const ContentTabs = () => {
         </Tabs.Tab>
         <Tabs.Tab label="LANCHES">
           <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-4 gap-4">
-            {drinksData.map((drink) => (
-              <Card key={drink.id} data={drink} />
+            {foodData.map((food) => (
+              <Card key={food.id} data={food} />
             ))}
           </div>
         </Tabs.Tab>
         <Tabs.Tab label="BEBIDAS">
           <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-4 gap-4">
-            {foodData.map((food) => (
-              <Card key={food.id} data={food} />
+            {drinksData.map((drink) => (
+              <Card key={drink.id} data={drink} />
             ))}
           </div>
         </Tabs.Tab>
