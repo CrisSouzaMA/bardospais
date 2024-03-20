@@ -1,5 +1,5 @@
-import Home from './Pages/Home/Home';
+import { AppRouter } from './routes/AppRouter';
 
-const App: React.FC = () => <Home />;
+const App: React.FC = () => <AppRouter />;
 
 export default App;
