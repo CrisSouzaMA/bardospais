@@ -34,7 +34,7 @@ export default function ResumeCart() {
           </p>
         </div>
       </div>
-      <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
+      <button className="mt-6 w-full rounded-md bg-gray-500 py-1.5 font-medium text-blue-50 hover:bg-gray-600">
         Finalizar compra
       </button>
     </div>

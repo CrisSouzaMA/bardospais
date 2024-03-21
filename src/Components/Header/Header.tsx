@@ -8,7 +8,7 @@ export const Header = () => {
     <>
       <header className="sm:px-8 px-4 py-4 z-10 w-full bg-[#D9D9D9] fixed">
         <nav className="container m-auto flex justify-between items-center">
-          <Link to="/" className="text-3xl font-bold uppercase">
+          <Link to="/" className="text-3xl font-bold uppercase text-gray-700">
             Bar dos Pais
           </Link>
 

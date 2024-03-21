@@ -46,7 +46,7 @@ export const Card = ({ data }: CardProps) => {
           <div className="justify-center items-center border-gray-100">
             <button
               onClick={() => handleRemoveProduct(data.id)}
-              className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+              className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-gray-500 hover:text-blue-50"
             >
               <FaMinus className="text-red-500" />
             </button>
@@ -56,7 +56,7 @@ export const Card = ({ data }: CardProps) => {
             <button
               onClick={handleAddProduct}
               className="cursor-pointer rounded-r bg-gray-100 
-            py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+            py-1 px-3 duration-100 hover:bg-gray-500 hover:text-blue-50"
             >
               <FaPlus className="text-green-500" />
             </button>
