@@ -40,7 +40,7 @@ export default function CartCardItem({ data }: CardProps) {
               <FaMinus className="text-red-500" />
             </button>
             <span className="py-1 px-3.5 bg-transparent">
-              {cart.find((item) => item.id === data.id ?? 0)?.quantity ?? 0}{' '}
+              {cart.find((item) => item.id === (data.id || 0))?.quantity ?? 0}
             </span>
             <button
               onClick={handleAddProduct}
