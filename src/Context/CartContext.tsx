@@ -5,6 +5,7 @@ interface CartContextData {
   cart: DataCardProps[];
   addToCart: (product: DataCardProps) => void;
   removeFromCart: (productId: string) => void;
+  cancelProductFromCart: (productId: string) => void;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
@@ -37,8 +38,14 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   };
 
+  const cancelProductFromCart = (productId: string) => {
+    const products = cart.filter((item) => item.id !== productId);
+    setCart(products);
+  };
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, cancelProductFromCart }}
+    >
       {children}
     </CartContext.Provider>
   );
