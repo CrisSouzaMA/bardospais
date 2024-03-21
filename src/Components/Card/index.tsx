@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { formatNumber } from '../../util/formatNumber';
-import { CardProps, DataCardProps } from '../../services/interface/card';
+import { CardProps } from '../../services/interface/card';
 import { useCart } from '../../Context/CartContext';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
@@ -42,22 +42,25 @@ export const Card = ({ data }: CardProps) => {
         </div>
       </div>
       <div className="w-full p-2 mt-4 fixed bottom-0 bg-gray-300 text-center">
-        <div className="justify-center items-center">
-          <button
-            className="ml-auto text-lg font-bold text-green-500 mr-4"
-            onClick={handleAddProduct}
-          >
-            <FaPlus />
-          </button>
-          <span className="text-lg font-semibold">
-            {cart.find((item) => item.id === data.id ?? 0)?.quantity ?? 0}
-          </span>
-          <button
-            className="text-lg font-bold text-red-500 ml-4"
-            onClick={() => handleRemoveProduct(data.id)}
-          >
-            <FaMinus />
-          </button>
+        <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+          <div className="justify-center items-center border-gray-100">
+            <button
+              onClick={() => handleRemoveProduct(data.id)}
+              className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+            >
+              <FaMinus className="text-red-500" />
+            </button>
+            <span className="py-1 px-3.5 bg-transparent font-semibold">
+              {cart.find((item) => item.id === data.id ?? 0)?.quantity ?? 0}
+            </span>
+            <button
+              onClick={handleAddProduct}
+              className="cursor-pointer rounded-r bg-gray-100 
+            py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+            >
+              <FaPlus className="text-green-500" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
