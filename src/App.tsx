@@ -1,14 +1,13 @@
-import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
-import Home from './Pages/Home/Home';
-import './App.module.css';
+import { Header } from './Components/Header/Header';
+import { AppRouter } from './routes/AppRouter';
 
-const App: React.FC = () => (
-  <div>
+const App: React.FC = () => {
+  return (
+    <>
       <Header />
-      <Home />
-      <Footer />
-  </div>
-);
+      <AppRouter />
+    </>
+  );
+};
 
-export default App
+export default App;
