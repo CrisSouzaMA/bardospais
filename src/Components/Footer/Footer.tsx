@@ -1,6 +1,3 @@
-import React from 'react';
-import style from './style.module.css';
-
 const Footer = () => {
   return (
     <div className="w-full border-t border-gray-300 py-4 text-center">

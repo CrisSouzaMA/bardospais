@@ -5,8 +5,11 @@ import { useCart } from '../../Context/CartContext';
 export function CartProduct() {
   const { cart } = useCart();
   return (
-    <div className="pt-20">
-      <CartComponent />
+    <div>
+      <div className="pt-20">
+        <CartComponent />
+      </div>
+
       <Footer />
     </div>
   );
