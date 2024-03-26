@@ -3,6 +3,7 @@ import { ReactNode, useState } from 'react';
 interface TabProps {
   label: string;
   children: ReactNode;
+  icon: ReactNode;
 }
 
 export const Tabs: React.FC<{ children: ReactNode[] }> = ({ children }) => {
@@ -24,10 +25,13 @@ export const Tabs: React.FC<{ children: ReactNode[] }> = ({ children }) => {
             key={child.props.label}
             className={`${
               activeTab === child.props.label ? 'border-b-2 border-red-500' : ''
-            } flex-1 text-gray-700 font-medium py-2`}
+            }  flex items-center justify-center flex-grow text-gray-700 font-medium py-2`}
             onClick={(e) => handleClick(e, child.props.label)}
           >
-            {child.props.label}
+            <span className="hidden md:inline">{child.props.label}</span>{' '}
+            {/* Renderize a legenda apenas em telas maiores */}
+            <span className="md:hidden text-2xl">{child.props.icon}</span>{' '}
+            {/* Renderize o ícone em todas as telas */}
           </button>
         ))}
       </div>
